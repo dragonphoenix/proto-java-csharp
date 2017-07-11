@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{90436797-C5FF-4F04-8787-16919F413B60}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DotNetty.Common</RootNamespace>
+    <AssemblyName>DotNetty.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Extensions.Logging, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.1.1.1\lib\netstandard1.1\Microsoft.Extensions.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=1.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.1.1.2\lib\netstandard1.1\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Desktop, Version=1.0.168.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Concurrency\AbstractEventExecutor.cs" />
+    <Compile Include="Concurrency\AbstractScheduledEventExecutor.cs" />
+    <Compile Include="Concurrency\ActionScheduledAsyncTask.cs" />
+    <Compile Include="Concurrency\ActionScheduledTask.cs" />
+    <Compile Include="Concurrency\ExecutionEnvironment.cs" />
+    <Compile Include="Concurrency\ExecutorTaskScheduler.cs" />
+    <Compile Include="Concurrency\ICallable`T.cs" />
+    <Compile Include="Concurrency\IEventExecutor.cs" />
+    <Compile Include="Concurrency\IEventExecutorGroup.cs" />
+    <Compile Include="Concurrency\IRunnable.cs" />
+    <Compile Include="Concurrency\IScheduledRunnable.cs" />
+    <Compile Include="Concurrency\IScheduledTask.cs" />
+    <Compile Include="Concurrency\RunnableScheduledTask.cs" />
+    <Compile Include="Concurrency\ScheduledAsyncTask.cs" />
+    <Compile Include="Concurrency\ScheduledTask.cs" />
+    <Compile Include="Concurrency\SingleThreadEventExecutor.cs" />
+    <Compile Include="Concurrency\StateActionScheduledAsyncTask.cs" />
+    <Compile Include="Concurrency\StateActionScheduledTask.cs" />
+    <Compile Include="Concurrency\StateActionWithContextScheduledAsyncTask.cs" />
+    <Compile Include="Concurrency\StateActionWithContextScheduledTask.cs" />
+    <Compile Include="Concurrency\TaskCompletionSource.cs" />
+    <Compile Include="Deque.cs" />
+    <Compile Include="FastThreadLocal.cs" />
+    <Compile Include="InternalThreadLocalMap.cs" />
+    <Compile Include="Internal\AbstractQueue.cs" />
+    <Compile Include="Internal\CompatibleConcurrentQueue.cs" />
+    <Compile Include="Internal\ConcurrentCircularArrayQueue.cs" />
+    <Compile Include="Internal\IQueue.cs" />
+    <Compile Include="Internal\Logging\AbstractInternalLogger.cs" />
+    <Compile Include="Internal\Logging\DefaultEventSource.cs" />
+    <Compile Include="Internal\Logging\EventSourceLogger.cs" />
+    <Compile Include="Internal\Logging\EventSourceLoggerProvider.cs" />
+    <Compile Include="Internal\Logging\FormattingTuple.cs" />
+    <Compile Include="Internal\Logging\GenericLogger.cs" />
+    <Compile Include="Internal\Logging\IInternalLogger.cs" />
+    <Compile Include="Internal\Logging\InternalLoggerFactory.cs" />
+    <Compile Include="Internal\Logging\InternalLogLevel.cs" />
+    <Compile Include="Internal\Logging\MessageFormatter.cs" />
+    <Compile Include="Internal\MacAddressUtil.cs" />
+    <Compile Include="Internal\MpscArrayQueue.cs" />
+    <Compile Include="Internal\PlatformDependent.cs" />
+    <Compile Include="Internal\RefArrayAccessUtil.cs" />
+    <Compile Include="Internal\SystemPropertyUtil.cs" />
+    <Compile Include="IReferenceCounted.cs" />
+    <Compile Include="IResourceLeak.cs" />
+    <Compile Include="IResourceLeakHint.cs" />
+    <Compile Include="PreciseTimeSpan.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceLeakDetector.cs" />
+    <Compile Include="ThreadDeathWatcher.cs" />
+    <Compile Include="ThreadLocalObjectList.cs" />
+    <Compile Include="ThreadLocalPool.cs" />
+    <Compile Include="Utilities\AbstractConstant.cs" />
+    <Compile Include="Utilities\AbstractReferenceCounted.cs" />
+    <Compile Include="Utilities\ArrayExtensions.cs" />
+    <Compile Include="Utilities\AtomicReference.cs" />
+    <Compile Include="Utilities\AttributeKey.cs" />
+    <Compile Include="Utilities\BitOps.cs" />
+    <Compile Include="Utilities\ByteProcessor.cs" />
+    <Compile Include="Utilities\ConstantPool.cs" />
+    <Compile Include="Utilities\DebugExtensions.cs" />
+    <Compile Include="Utilities\DefaultAttributeMap.cs" />
+    <Compile Include="Utilities\IAttribute.cs" />
+    <Compile Include="Utilities\IAttributeMap.cs" />
+    <Compile Include="Utilities\IConstant.cs" />
+    <Compile Include="Utilities\IntegerExtensions.cs" />
+    <Compile Include="Utilities\PriorityQueue.cs" />
+    <Compile Include="Utilities\RandomExtensions.cs" />
+    <Compile Include="Utilities\ReferenceCountUtil.cs" />
+    <Compile Include="Utilities\ReferenceEqualityComparer.cs" />
+    <Compile Include="Utilities\StringUtil.cs" />
+    <Compile Include="Utilities\TaskEx.cs" />
+    <Compile Include="Utilities\ThreadExtensions.cs" />
+    <Compile Include="Utilities\TimeUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="project.json" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>此项目引用这台计算机上缺少的 NuGet 程序包。使用 NuGet 程序包还原可下载这些程序包。有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

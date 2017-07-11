@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option java_package = "com.xinli.netty.protobuf";
+
+
+package auth;
+
+message AuthRequest{
+	 string user_id=1;
+	 string password=2;
+}
+
+message AuthResponse{
+	 int32 result_code=1;
+	 string result_message=2;
+}

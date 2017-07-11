@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package multimessage;
+
+option java_package = "com.dragon.proto.message";
+option java_outer_classname = "Messages";
+
+option csharp_namespace = "Google.Protobuf.Multimessage";
+
+
+message Message{
+	enum Type {FOO = 0; BAR = 1; BAZ = 2;}
+	Type type = 1;
+
+	Foo foo = 2;
+	Bar bar = 3;
+	Baz baz = 4;
+}
+
+message Foo{
+	string name = 1;
+}
+
+message Bar{
+	string name = 1;
+}
+
+message Baz{
+	string name = 1;
+}
