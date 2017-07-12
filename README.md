@@ -5,4 +5,4 @@ This is a protobuf example project. Server uses [Netty](https://github.com/netty
 ## Notice:
 > maven protobuf message compile: **protobuf:compile**
 
-> c# protobuf message compile: **python $(ProjectDir)\proto\protobuf.py -o$(ProjectDir)\GenCode -i$(ProjectDir)\proto**
+> c# (vs2015) protobuf message compile: **python $(ProjectDir)\proto\protobuf.py -o$(ProjectDir)\GenCode -i$(ProjectDir)\proto**
