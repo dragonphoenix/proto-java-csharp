@@ -1,1 +1,0 @@
-F:\workspace\proto\proto-java-csharp\DotNetty\bin\DotNetty.exe.config
