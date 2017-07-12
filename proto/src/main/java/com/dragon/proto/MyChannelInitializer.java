@@ -48,14 +48,14 @@ public class MyChannelInitializer extends ChannelInitializer<SocketChannel> {
 		@Override
 		public void handlerAdded(ChannelHandlerContext ctx) throws Exception {
 			// TODO Auto-generated method stub
-			System.out.println("==========================handlerAdded");
+			//System.out.println("==========================handlerAdded");
 			super.handlerAdded(ctx);
 		}
 
 		@Override
 		public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
 			// TODO Auto-generated method stub
-			System.out.println("==========================handlerRemoved");
+			//System.out.println("==========================handlerRemoved");
 			super.handlerRemoved(ctx);
 		}
 
@@ -63,7 +63,7 @@ public class MyChannelInitializer extends ChannelInitializer<SocketChannel> {
 		public void channelRegistered(ChannelHandlerContext ctx) throws Exception {
 			// TODO Auto-generated method stub
 			super.channelRegistered(ctx);
-			System.out.println("==========================channelRegistered");
+			//System.out.println("==========================channelRegistered");
 			channelGroup.add(ctx.channel());
 			
 			Message message = Message.newBuilder().setType(Type.BAZ).setBaz(Baz.newBuilder().setName("foo")).build();
@@ -77,7 +77,7 @@ public class MyChannelInitializer extends ChannelInitializer<SocketChannel> {
 		public void channelUnregistered(ChannelHandlerContext ctx) throws Exception {
 			// TODO Auto-generated method stub
 			super.channelUnregistered(ctx);
-			System.out.println("==========================channelUnregistered");
+			//System.out.println("==========================channelUnregistered");
 			channelGroup.remove(ctx.channel());
 		}
 
@@ -95,42 +95,43 @@ public class MyChannelInitializer extends ChannelInitializer<SocketChannel> {
 		@Override
 		public void channelInactive(ChannelHandlerContext ctx) throws Exception {
 			// TODO Auto-generated method stub
-			System.out.println("==========================channelInactive");
+			//System.out.println("==========================channelInactive");
 			super.channelInactive(ctx);
 		}
 
 		@Override
 		public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 			System.out.println(msg);
-			System.out.println("==========================channelRead");
+			//System.out.println("==========================channelRead");
+			//System.exit(0);
 		}
 
 		@Override
 		public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
 			// TODO Auto-generated method stub
 			super.channelReadComplete(ctx);
-			System.out.println("==========================channelReadComplete");
+			//System.out.println("==========================channelReadComplete");
 		}
 
 		@Override
 		public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
 			// TODO Auto-generated method stub
 			super.userEventTriggered(ctx, evt);
-			System.out.println("==========================userEventTriggered");
+			//System.out.println("==========================userEventTriggered");
 		}
 
 		@Override
 		public void channelWritabilityChanged(ChannelHandlerContext ctx) throws Exception {
 			// TODO Auto-generated method stub
 			super.channelWritabilityChanged(ctx);
-			System.out.println("==========================channelWritabilityChanged");
+			//System.out.println("==========================channelWritabilityChanged");
 		}
 
 		@Override
 		public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
 
 			ctx.close();
-			System.out.println("==========================exceptionCaught");
+			//System.out.println("==========================exceptionCaught");
 		}
 
 	}
