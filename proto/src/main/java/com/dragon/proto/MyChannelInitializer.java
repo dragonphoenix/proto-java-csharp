@@ -28,6 +28,7 @@ public class MyChannelInitializer extends ChannelInitializer<SocketChannel> {
 
 	@Override
 	protected void initChannel(SocketChannel ch) throws Exception {
+		System.out.println("===========================initChannel");
 		ChannelPipeline pipeline = ch.pipeline();
 
 		pipeline.addLast(new ProtobufVarint32FrameDecoder());
@@ -42,7 +43,7 @@ public class MyChannelInitializer extends ChannelInitializer<SocketChannel> {
 
 	public static class MyChannelHandler extends ChannelInboundHandlerAdapter {
 
-		private static int _id = 0;
+		//private static int _id = 0;
 		private static ChannelGroup channelGroup = new DefaultChannelGroup("channel group", GlobalEventExecutor.INSTANCE);
 
 		@Override
@@ -83,7 +84,7 @@ public class MyChannelInitializer extends ChannelInitializer<SocketChannel> {
 
 		@Override
 		public void channelActive(ChannelHandlerContext ctx) throws Exception {
-			int id = _id++;
+			//int id = _id++;
 			Message message = Message.newBuilder().setType(Type.FOO).setFoo(Foo.newBuilder().setName("foo")).build();
 
 			ctx.writeAndFlush(message);

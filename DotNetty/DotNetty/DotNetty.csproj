@@ -46,13 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessChannelHandler.cs" />
     <Compile Include="GenCode\Addressbook.cs" />
     <Compile Include="GenCode\Multimsg.cs" />
+    <Compile Include="LogUtils.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProtoBufSocket.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="proto\addressbook.proto" />
     <None Include="proto\multimsg.proto" />
     <None Include="proto\protobuf.py" />
