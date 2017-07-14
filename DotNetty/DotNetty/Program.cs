@@ -24,6 +24,8 @@ namespace DotNetty
                     t.SendMessage(BuildObject("A"));
                 }
             } while (cmd != null && cmd.ToLower() != "q");
+
+            t.Disconnect();
         }
 
         private static void ReceiveMessage(object message)

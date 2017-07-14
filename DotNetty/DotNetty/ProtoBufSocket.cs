@@ -21,7 +21,8 @@ namespace DotNetty
         public event ReceiveMessageEvent ReceiveMessage;
 
         private AutoResetEvent ChannelInitilizedEvent = new AutoResetEvent(false);
-        public Bootstrap SocketBootstrap = new Bootstrap();
+        private Bootstrap SocketBootstrap = new Bootstrap();
+        private MultithreadEventLoopGroup WorkGroup = new MultithreadEventLoopGroup();
         private volatile bool Connected = false;
         private IChannel Channel;
 
@@ -32,8 +33,7 @@ namespace DotNetty
 
         private void InitBootstrap()
         {
-            var group = new MultithreadEventLoopGroup();
-            SocketBootstrap.Group(@group)
+            SocketBootstrap.Group(WorkGroup)
                 .Channel<TcpSocketChannel>()
                 .Option(ChannelOption.TcpNodelay, true)
                 .Option(ChannelOption.SoKeepalive, true)
@@ -55,6 +55,10 @@ namespace DotNetty
         {
             var thread = new Thread(new ThreadStart(DoConnect().Wait));
             thread.Start();
+        }
+        public void Disconnect()
+        {
+            WorkGroup.ShutdownGracefullyAsync(TimeSpan.FromMilliseconds(100), TimeSpan.FromSeconds(1));
         }
 
         public void SendMessage(object message)
